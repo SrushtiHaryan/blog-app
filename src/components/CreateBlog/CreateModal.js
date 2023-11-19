@@ -26,7 +26,7 @@ const CreateModal = () => {
 
   const handleCreatePost = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/api/posts', blog);
+      const response = await axios.post('https://blog-app-server-px46.onrender.com/api/posts', blog);
       
       if (response.status === 201) {
         // Handle successful creation (e.g., show success message, reset form)

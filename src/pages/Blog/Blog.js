@@ -30,7 +30,7 @@ const Blog = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/blog/${id}`);
+                const response = await axios.get(`https://blog-app-server-px46.onrender.com/api/blog/${id}`);
                 console.log(response.data);
                 setBlog(response.data); // Assuming the response contains blog data
             } catch (error) {
@@ -56,7 +56,7 @@ const Blog = () => {
 
         try {
             // Make a request to update the blog data in the database
-            const response = await axios.put(`http://localhost:8080/api/blog/${id}`, updatedBlog);
+            const response = await axios.put(`https://blog-app-server-px46.onrender.com/api/blog/${id}`, updatedBlog);
             console.log('Updated blog:', response.data);
 
             // Handle other actions if needed
@@ -77,7 +77,7 @@ const Blog = () => {
     const handleDeleteConfirmation = async () => {
         try {
             // Make a DELETE request to delete the blog with its ID
-            await axios.delete(`http://localhost:8080/api/blog/${id}`);
+            await axios.delete(`https://blog-app-server-px46.onrender.com/api/blog/${id}`);
             console.log(`Blog with ID ${id} deleted`);
     
             // Handle other actions if needed

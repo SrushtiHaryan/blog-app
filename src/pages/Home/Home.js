@@ -66,7 +66,7 @@ const Home = () => {
 
     useEffect(() => {
         // Perform GET request to fetch blog data from the server
-        axios.get('http://localhost:8080/api/blogs')
+        axios.get('https://blog-app-server-px46.onrender.com/api/blogs')
             .then(response => {
                 // Assuming the data returned is an array of blogs
                 setBlogData(response.data);

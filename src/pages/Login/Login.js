@@ -19,7 +19,7 @@ const Login = () => {
   const handleLogin = async (email, password) => {
     try {
       const loginData = { email, password };
-      const response = await axios.post('http://localhost:8080/api/login', loginData, {
+      const response = await axios.post('https://blog-app-server-px46.onrender.com/api/login', loginData, {
         headers: {
           'Content-Type': 'application/json',
         },

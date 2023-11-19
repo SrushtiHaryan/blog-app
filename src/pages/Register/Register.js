@@ -21,7 +21,7 @@ const Register = ({ handleRegister }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/api/register', registrationData, {
+      const response = await axios.post('https://blog-app-server-px46.onrender.com/api/register', registrationData, {
         headers: {
           'Content-Type': 'application/json',
         },
