@@ -1,0 +1,73 @@
+.blog {
+  display: flex;
+  /* justify-content: center; */
+  background-color: #f6f7f7;
+}
+
+.individual-blog {
+  padding: 20px;
+  
+  border-radius: 5px;
+  margin: 20px;
+  
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the title */
+.individual-blog h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the author info */
+.individual-blog p {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.blog-image {
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  display: block; /* Ensures proper block-level rendering */
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+/* Styles for the options (edit and delete buttons) */
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+.options button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background-color: #ddd;
+}
+
+/* Styles for the highlighted blog section */
+.highlighted-blog {
+  margin-top: 30px;
+  border-left: 5px solid #4a90e2; /* Cobalt blue color for decoration */
+  padding-left: 10px;
+}
+
+/* Styles for the highlighted blog heading */
+.highlight-heading {
+  font-size: 18px;
+  color: #4a90e2;
+  margin-bottom: 15px;
+}
+
+/* Styles for the blog content */
+.blog-content {
+  line-height: 1.6;
+}

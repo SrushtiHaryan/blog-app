@@ -1,0 +1,45 @@
+.post{
+    max-width:320px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 1.5rem;
+    
+}
+
+.blog-card-image img{
+    border-radius: 8px 8px 0 0;
+}
+.texts h2{
+    font-size:1rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.texts a{
+    text-decoration: none;
+    
+}
+
+.texts p{
+    font-size:0.9rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-bottom: 0.8rem;
+    
+   
+}
+
+.blog-link {
+    /* Add styles for the link */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+    /* Add any other styles you want for the link */
+}
+
+.blog-link:hover {
+    /* Add styles for hover state */
+    /* For example, change color or add an underline on hover */
+    color: #555; /* Change text color on hover */
+    /* Add other hover styles */
+}

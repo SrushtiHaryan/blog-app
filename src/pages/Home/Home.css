@@ -1,0 +1,18 @@
+.blog{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F6F7F7;
+}
+.masonry-grid {
+    display: flex;
+    margin-left: -30px; /* Adjust as needed */
+    width: auto;
+  }
+  
+  .masonry-grid_column {
+    background-clip: padding-box;
+    padding-left: 30px; /* Adjust as needed */
+    background-color: transparent;
+    margin-bottom: 30px; /* Adjust as needed */
+  }
