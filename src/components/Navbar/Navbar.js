@@ -27,7 +27,7 @@ const Navbar = () => {
   }, [isLoggedIn, navigate]);
     return (
         <header>
-            <a href="" className="logo">BlogWise.</a>
+            <a href="/" className="logo">BlogWise.</a>
 
             <nav>
                 {isLoggedIn ? (

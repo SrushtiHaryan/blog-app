@@ -50,7 +50,7 @@ const Login = () => {
   useEffect(() => {
     if (isLoggedIn) {
       // Redirect after context updates
-      navigate('/'); // Redirect to your blog page
+      navigate(-1); // Redirect to your blog page
     }
   }, [isLoggedIn, navigate]);
   

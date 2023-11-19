@@ -4,13 +4,14 @@ import './Blog.css';
 import BlogModal from '../../components/BlogModal/BlogModal';
 import DeleteModal from '../../components/DeleteModal/DeleteModal';
 import axios from 'axios';
+import { useUserContext } from '../../context/UserContext';
 const Blog = () => {
     const { id } = useParams(); // Get the blog ID from the URL
     const [editing, setEditing] = useState(false);
     const [blogContent, setBlogContent] = useState('');
     const [deleting, setDeleting] = useState(false);
     const [blog, setBlog] = useState(null);
-
+    const { username } = useUserContext();
     // Find the blog post using its ID
     //   const blog = blogs.find(blog => blog.id === parseInt(id));
 
@@ -22,7 +23,7 @@ const Blog = () => {
     //   const isAuthor = blog.author === currentUser;
 
     // Function to handle deletion of the blog post
-    
+
 
     useEffect(() => {
         const fetchBlog = async () => {
@@ -47,13 +48,21 @@ const Blog = () => {
     const handleCloseModal = () => {
         setEditing(false);
     };
+    
 
-    const handleSaveModal = (newContent) => {
-        // Handle saving the updated content (e.g., update state or API call)
-        console.log('New content:', newContent);
-        setEditing(false);
+    const handleSaveModal = async (updatedBlog) => {
+
+        try {
+            // Make a request to update the blog data in the database
+            const response = await axios.put(`http://localhost:8080/api/blog/${id}`, updatedBlog);
+            console.log('Updated blog:', response.data);
+
+            // Handle other actions if needed
+            setEditing(false); // Close the modal after saving
+        } catch (error) {
+            console.error('Error updating blog:', error);
+        }
     };
-
     const handleDelete = () => {
         setDeleting(true);
     };
@@ -62,10 +71,17 @@ const Blog = () => {
         setDeleting(false);
     };
 
-    const handleDeleteConfirmation = () => {
-        // Handle blog deletion (e.g., call delete API, update state)
-        console.log(`Deleting blog with ID: ${id}`);
-        setDeleting(false);
+    const handleDeleteConfirmation = async () => {
+        try {
+            // Make a DELETE request to delete the blog with its ID
+            await axios.delete(`http://localhost:8080/api/blog/${id}`);
+            console.log(`Blog with ID ${id} deleted`);
+    
+            // Handle other actions if needed
+            setDeleting(false); // Close the modal or handle any UI changes
+        } catch (error) {
+            console.error('Error deleting blog:', error);
+        }
     };
 
     if (!blog) {
@@ -79,10 +95,13 @@ const Blog = () => {
             <p>Author: {blog.author.username}</p>
             {/* {isAuthor && ( */}
 
-            <div className="options">
-                <button onClick={handleEdit}>Edit</button>
-                <button onClick={handleDelete}>Delete</button>
-            </div>
+
+            {(blog.author.username === username) && (
+                <div className="options">
+                    <button onClick={handleEdit}>Edit</button>
+                    <button onClick={handleDelete}>Delete</button>
+                </div>
+            )}
 
             <div className="highlighted-blog">
                 <h2 className="highlight-heading">{blog.highlight}</h2>
