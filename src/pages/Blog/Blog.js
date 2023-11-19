@@ -1,10 +1,11 @@
 import { React, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams to get the blog ID from the URL
+import { useParams, useNavigate } from 'react-router-dom'; // Import useParams to get the blog ID from the URL
 import './Blog.css';
 import BlogModal from '../../components/BlogModal/BlogModal';
 import DeleteModal from '../../components/DeleteModal/DeleteModal';
 import axios from 'axios';
 import { useUserContext } from '../../context/UserContext';
+
 const Blog = () => {
     const { id } = useParams(); // Get the blog ID from the URL
     const [editing, setEditing] = useState(false);
@@ -12,6 +13,7 @@ const Blog = () => {
     const [deleting, setDeleting] = useState(false);
     const [blog, setBlog] = useState(null);
     const { username } = useUserContext();
+    const navigate = useNavigate();
     // Find the blog post using its ID
     //   const blog = blogs.find(blog => blog.id === parseInt(id));
 
@@ -59,6 +61,7 @@ const Blog = () => {
 
             // Handle other actions if needed
             setEditing(false); // Close the modal after saving
+            navigate(0);
         } catch (error) {
             console.error('Error updating blog:', error);
         }
