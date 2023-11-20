@@ -13,7 +13,7 @@ const Register = ({ handleRegister }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send registration data to the server
+    
     const registrationData = {
       "email":email,
      "password":password,
@@ -21,7 +21,7 @@ const Register = ({ handleRegister }) => {
     };
 
     try {
-      const response = await axios.post('https://blog-app-server-px46.onrender.com/api/register', registrationData, {
+      const response = await axios.post('http://localhost:8080/api/register', registrationData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -31,9 +31,9 @@ const Register = ({ handleRegister }) => {
       if (response.data.registered) {
         // Registration successful
         window.location.href = response.data.redirect;
-        // Redirect to login page or perform any other action
+        
       } else {
-        // Handle registration failure
+        
         console.error('Registration failed:', response.data.error);
       }
     } catch (error) {

@@ -3,14 +3,7 @@ import './BlogModal.css'; // Define modal styles in Modal.css
 
 const BlogModal = ({ isOpen, handleClose, handleSave, blog }) => {
 
-    // blog = {
-    //     id: 1,
-    //     title: 'India Price Comparison Research',
-    //     content:
-    //         'A dedicated comparison research team in Wise compared Wise to four India bank accounts. They found that we’re on average 3x cheaper to send ₹9,000 abroad',
-    //     imageUrl:
-    //         'https://wise.com/imaginary-v2/f1aa072b2e417238ccaf8a6f2caa9c0f.jpg',
-    // };
+  
   const { imageUrl, title, content, highlight } = blog;
   const [updatedBlog, setUpdatedBlog] = useState({ ...blog });
 

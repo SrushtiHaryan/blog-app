@@ -1,5 +1,5 @@
 import React from 'react';
-import './DeleteModal.css'; // Define modal styles in DeleteConfirmationModal.css
+import './DeleteModal.css'; 
 
 const DeleteModal = ({ isOpen, handleClose, handleDelete }) => {
   return (

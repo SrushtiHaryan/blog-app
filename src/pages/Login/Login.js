@@ -19,27 +19,25 @@ const Login = () => {
   const handleLogin = async (email, password) => {
     try {
       const loginData = { email, password };
-      const response = await axios.post('https://blog-app-server-px46.onrender.com/api/login', loginData, {
+      const response = await axios.post('http://localhost:8080/api/login', loginData, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
       if (response.data && response.data.loggedIn) {
-        // Redirect or perform actions upon successful login
+        
         console.log(response.data)
         setLoggedInContext(response.data.loggedIn);
         setUsernameContext(response.data.username)
         console.log('Login successful');
 
-        // Assuming these updates are synchronous, verify their values
+        
         console.log('isLoggedIn:', response.data.loggedIn);
         console.log('username:', response.data.username);
 
-        // Redirect after the context updates have taken place
-        // window.location.href = response.data.redirect;
+
       } else {
-        // Handle login failure
         console.error('Login failed:', response.data ? response.data.error : 'Unknown error');
       }
     } catch (error) {

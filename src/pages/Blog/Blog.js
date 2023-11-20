@@ -14,25 +14,15 @@ const Blog = () => {
     const [blog, setBlog] = useState(null);
     const { username } = useUserContext();
     const navigate = useNavigate();
-    // Find the blog post using its ID
-    //   const blog = blogs.find(blog => blog.id === parseInt(id));
-
-    //   if (!blog) {
-    //     return <div>Blog not found</div>;
-    //   }
-
-    // Check if the current user is the author of the blog post
-    //   const isAuthor = blog.author === currentUser;
-
-    // Function to handle deletion of the blog post
+    
 
 
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await axios.get(`https://blog-app-server-px46.onrender.com/api/blog/${id}`);
+                const response = await axios.get(`http://localhost:8080/api/blog/${id}`);
                 console.log(response.data);
-                setBlog(response.data); // Assuming the response contains blog data
+                setBlog(response.data); 
             } catch (error) {
                 console.error('Error fetching blog:', error);
             }
@@ -44,7 +34,7 @@ const Blog = () => {
 
     const handleEdit = () => {
         setEditing(true);
-        // setBlogContent(blog.content);
+       
     };
 
     const handleCloseModal = () => {
@@ -56,11 +46,11 @@ const Blog = () => {
 
         try {
             // Make a request to update the blog data in the database
-            const response = await axios.put(`https://blog-app-server-px46.onrender.com/api/blog/${id}`, updatedBlog);
+            const response = await axios.put(`http://localhost:8080/api/blog/${id}`, updatedBlog);
             console.log('Updated blog:', response.data);
 
-            // Handle other actions if needed
-            setEditing(false); // Close the modal after saving
+            
+            setEditing(false); 
             navigate(0);
         } catch (error) {
             console.error('Error updating blog:', error);
@@ -76,19 +66,18 @@ const Blog = () => {
 
     const handleDeleteConfirmation = async () => {
         try {
-            // Make a DELETE request to delete the blog with its ID
-            await axios.delete(`https://blog-app-server-px46.onrender.com/api/blog/${id}`);
+            
+            await axios.delete(`http://localhost:8080/api/blog/${id}`);
             console.log(`Blog with ID ${id} deleted`);
     
-            // Handle other actions if needed
-            setDeleting(false); // Close the modal or handle any UI changes
+            setDeleting(false); 
         } catch (error) {
             console.error('Error deleting blog:', error);
         }
     };
 
     if (!blog) {
-        return <div>Loading...</div>; // You can also show an error message here
+        return <div>Loading...</div>; 
     }
 
     return (
@@ -96,7 +85,7 @@ const Blog = () => {
             <img src={blog.imageUrl} alt="Blog" className="blog-image" />
             <h1>{blog.title}</h1>
             <p>Author: {blog.author.username}</p>
-            {/* {isAuthor && ( */}
+           
 
 
             {(blog.author.username === username) && (

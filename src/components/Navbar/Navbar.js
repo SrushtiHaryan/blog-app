@@ -8,14 +8,9 @@ const Navbar = () => {
     const { isLoggedIn, username, setLoggedInContext, setUsernameContext } = useUserContext();
 
   const handleLogout = () => {
-    // Perform logout actions
-    setLoggedInContext(false); // Set isLoggedIn to false or null
+        setLoggedInContext(false); // Set isLoggedIn to false
     setUsernameContext(''); // Clear username
 
-    // Additional actions like clearing local storage, etc., if needed
-
-    // Redirect to the login or home page after logout
-    // history.push('/login'); // Redirect to your login page if needed
     console.log(isLoggedIn)
   };
 
